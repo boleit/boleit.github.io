@@ -1,7 +1,6 @@
 <template>
     <el-container class="container">
         <el-card class="reportCard">
-
         </el-card>
     </el-container>
 </template>
