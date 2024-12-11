@@ -10,10 +10,13 @@
   },
   "dependencies": {
     "element-plus": "^2.8.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.2",
     "vue": "^3.4.37",
     "vue-router": "^4.4.3"
   },
   "devDependencies": {
+    "@types/node": "^22.10.1",
     "@vitejs/plugin-vue": "^5.1.2",
     "less": "^4.2.0",
     "typescript": "^5.5.3",

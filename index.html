@@ -1,13 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/public/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>博乐科技</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <!-- <link rel="icon" type="image/jpeg" href="/boleit.jpg" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>博乐科技</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
+
+<script type="module">
+  import kaomoji from "@/assets/data/kaomoji.json";
+  console.log(kaomoji);
+  
+  function getRandomItem(arr) {
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    return arr[randomIndex];
+  }
+  function setTitleWithEmoji(kaomojiSet) {
+    document.title = "博乐科技" + getRandomItem(kaomojiSet);
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    setTitleWithEmoji(kaomoji.happy);
+    window.addEventListener("beforeunload", function (event) {
+      setTitleWithEmoji(kaomoji.bye);
+      const message = "要离开了吗？";
+      event.returnValue = message;
+      return message;
+    });
+    window.addEventListener("blur", function () {
+      setTitleWithEmoji(kaomoji.sad);
+    });
+    window.addEventListener("focus", function () {
+      setTitleWithEmoji(kaomoji.happy);
+    });
+  });
+</script>
